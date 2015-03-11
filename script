@@ -1,0 +1,7 @@
+#!/bin/bash
+while true
+do
+wget -q -O "index.html" http://pogoda.tut.by
+grep -A1 'height="64"' index.html |awk ' /'deg'/ {print $2} '| grep -o '[-+][0-9]\+'
+sleep 5
+done
